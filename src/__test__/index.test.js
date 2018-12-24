@@ -4,6 +4,10 @@ const strip = require('strip-ansi')
 const createLogger = require('..')
 
 describe('log', () => {
+  afterEach(() => {
+    jest.resetAllMocks()
+  })
+
   it('should exist', () => {
     expect(createLogger).toBeDefined()
     expect(typeof createLogger).toEqual('function')
@@ -35,7 +39,7 @@ describe('log', () => {
   })
 
   it('should log for unique loggers', () => {
-    const infoMock = jest.spyOn(console, 'info')
+    const infoMock = jest.spyOn(console, 'info').mockImplementation(() => {})
 
     const log = createLogger({ name: 'wds' })
     const log2 = createLogger({ name: 'wdm' })
@@ -45,7 +49,6 @@ describe('log', () => {
 
     const [first] = infoMock.mock.calls[0]
     const [last] = infoMock.mock.calls[infoMock.mock.calls.length - 1]
-
 
     expect(infoMock.mock.calls.length).toEqual(2)
     expect(strip(first)).toEqual('ℹ ｢wds｣: webpack-dev-server')

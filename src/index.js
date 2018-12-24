@@ -49,6 +49,7 @@ function deleteLogger(id) {
 }
 
 module.exports = createLogger
+module.exports.default = createLogger
 // NOTE: this is exported so that consumers of webpack-log can use the same
 // version of ansi-colors to decorate log messages without incurring additional
 // dependency overhead
