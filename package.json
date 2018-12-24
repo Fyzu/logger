@@ -1,6 +1,6 @@
 {
   "name": "@fyzu/logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A common logger for my ecosystem",
   "author": "Dmitry Petrov <dvpetrov.main@gmail.com>",
   "issues": "https://github.com/Fyzu/logger/issues",

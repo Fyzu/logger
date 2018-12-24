@@ -12,4 +12,4 @@ export interface LoggerOptions {
 
 export const colors: typeof ansiColors
 
-export default function createLogger(): Logger
+export default function createLogger(options: LoggerOptions): Logger
